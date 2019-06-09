@@ -3,7 +3,7 @@
 const React = require("react");
 
 let Item = React.createClass({
-    render: function() {
+    render() {
         return <li>{this.props.children}</li>
     }
 });

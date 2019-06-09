@@ -2,7 +2,7 @@
 
 const
     React = require("react"),
-    Item = require("./item"),
+    Item = require("./item").default,
     ItemForm = require("./item-form");
 
 
@@ -24,7 +24,7 @@ let ItemsList = React.createClass({
         return <div>
             <h1>{this.props.header}</h1>
             <ul>
-                {this.state.items.map(item => <Item>{item + "-state"}</Item>)}
+                {this.state.items.map(item => <Item>{item}</Item>)}
             </ul>
             <ItemForm addItem={this.addItem} />            
         </div>;

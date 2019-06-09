@@ -33,6 +33,7 @@ gulp.task("webpack", ["babel"], function() {
 
 	return gulp.src("./dist/www/js/site.js")
 		.pipe(webpack({
+			mode: "development",
 			output: {
         filename: "site-webpack.js"
     	}
