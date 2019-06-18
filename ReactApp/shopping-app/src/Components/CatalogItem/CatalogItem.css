@@ -1,0 +1,11 @@
+.itemLine {
+    width: 50%;
+}
+
+.itemName {
+    text-align: left;
+}
+
+.itemCategory {
+    text-align: right;
+}
