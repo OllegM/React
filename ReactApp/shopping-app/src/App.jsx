@@ -4,9 +4,10 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import SiteCatalog from './Components/SiteCatalog/SiteCatalog';
+import Header from './Components/Header/Header';
 import './App.css';
-import {Button} from 'react-bootstrap';
-
+// import {Button} from 'react-bootstrap';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -20,8 +21,8 @@ export default class App extends React.Component {
     const catalog = this.state.catalog;
     return (
       <div className="App">
+        <Header />
         <SiteCatalog catalog={catalog} />
-        <Button>Hello button</Button>
       </div>
     );
   }

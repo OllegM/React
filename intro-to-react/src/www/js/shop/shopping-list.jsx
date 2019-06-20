@@ -13,7 +13,11 @@ export class ShoppingList extends React.Component {
                 What would you like to shop today?
             </h1>
             <Category categories={this.props.categories}>
-                <Goods items={this.props.items} />
+                <Goods items={this.props.items.map((item) => {
+                    if (item.category == 'Electronics') {
+                        return item;
+                    }
+                })} />
             </Category>
         </div>
         );
