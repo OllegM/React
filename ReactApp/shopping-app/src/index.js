@@ -8,4 +8,7 @@ import './index.css';
 import App from './App';
 import catalog from './catalog';
 
-ReactDOM.render(<App catalog={catalog} />, document.getElementById('root'));
+let i = 0;
+let siteCatalog = catalog.map((item) => {item.id = (++i).toString(); return item; });
+
+ReactDOM.render(<App catalog={siteCatalog} />, document.getElementById('root'));

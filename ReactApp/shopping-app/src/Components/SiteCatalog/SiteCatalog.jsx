@@ -13,13 +13,17 @@ function SiteCatalog(props) {
   );
 
   const catalogItems = catalog.map(item => {
-      return <CatalogItem item={item} />;
+    return <CatalogItem key={item.id} item={item} />;
   });
 
   return (
     <table className="table table-striped table-dark">
-      {tableHeader}
-      {catalogItems}
+      <thead>
+        {tableHeader}
+      </thead>
+      <tbody>
+        {catalogItems}
+      </tbody>
     </table>
   );
 }
