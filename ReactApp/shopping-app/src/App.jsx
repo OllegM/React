@@ -19,10 +19,11 @@ export default class App extends React.Component {
 
   render() {
     const catalog = this.state.catalog;
+    const categories = this.props.categories;
     return (
       <div className="App">
         <Header />
-        <SiteCatalog catalog={catalog} />
+        <SiteCatalog catalog={catalog} categories={categories} />
       </div>
     );
   }

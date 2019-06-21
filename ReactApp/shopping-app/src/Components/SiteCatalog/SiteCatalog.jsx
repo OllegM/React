@@ -1,31 +1,36 @@
 import React from 'react';
-import CatalogItem from '../CatalogItem/CatalogItem';
+import {CatalogItems} from '../CatalogItems/CatalogItems';
+import Category from '../Category/Category';
 
 function SiteCatalog(props) {
-  const { catalog } = props;
+  const { catalog, categories } = props;
 
-  const tableHeader = (
+  const TableHeader = (
     <tr>
-      <th scope="col">Check</th>
       <th scope="col">Title</th>
-      <th scope="col">Category</th>
+      <th scope="col">Price</th>
+      <th scope="col">Add to cart</th>
     </tr>
   );
 
-  const catalogItems = catalog.map(item => {
-    return <CatalogItem key={item.id} item={item} />;
+  const CatalogCategories = [...categories].map(categoryItem => {
+    return (
+      <Category title={categoryItem} >
+        <CatalogItems catalog={catalog} category={categoryItem} />
+      </Category>
+    );
   });
 
   return (
     <table className="table table-striped table-dark">
       <thead>
-        {tableHeader}
+        {TableHeader}
       </thead>
-      <tbody>
-        {catalogItems}
-      </tbody>
+      {CatalogCategories}
     </table>
   );
 }
+
+
 
 export default SiteCatalog;
