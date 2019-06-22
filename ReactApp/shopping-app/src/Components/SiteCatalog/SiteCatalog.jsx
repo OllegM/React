@@ -1,36 +1,65 @@
 import React from 'react';
 import {CatalogItems} from '../CatalogItems/CatalogItems';
 import Category from '../Category/Category';
+import CatalogController from '../../Controllers/CatalogController';
 
-function SiteCatalog(props) {
-  const { catalog, categories } = props;
+class SiteCatalog extends React.Component {
 
-  const TableHeader = (
-    <tr>
+  constructor(props) {
+    super(props);
+    this.state = { 
+      items: [],
+      categories: []
+    };
+
+    // subscribe for return events from controller to component
+    CatalogController.subscribers.push(this.refreshItems);
+  }
+
+  componentDidMount() {
+    CatalogController.getAllItems().then((items) => {
+      this.setState({
+        items: items
+      });
+    });
+    
+    CatalogController.getAllCatergories().then((categories) => {
+      this.setState({
+        categories: categories
+      });
+    });
+  }
+
+  refreshItems = (items) => {
+    this.setState({
+      items: items
+    })
+  }
+  
+  TableHeader = <tr>
       <th scope="col">Title</th>
       <th scope="col">Price</th>
       <th scope="col">Add to cart</th>
-    </tr>
-  );
+    </tr>;
 
-  const CatalogCategories = categories.map(categoryItem => {
+  Catalog() { return this.state.categories.map(categoryItem => {
     return (
       <Category title={categoryItem.category} key={categoryItem.id} >
-        <CatalogItems catalog={catalog} category={categoryItem.category} />
+        <CatalogItems items={this.state.items} category={categoryItem.category} updateItem={CatalogController.updateItem} />
       </Category>
     );
   });
-
-  return (
-    <table className="table table-striped table-dark">
-      <thead>
-        {TableHeader}
-      </thead>
-      {CatalogCategories}
-    </table>
-  );
 }
 
-
+  render(props) {
+    return (
+    <table className="table table-striped table-dark">
+      <thead>
+        {this.TableHeader}
+      </thead>
+      {this.Catalog()}
+    </table>
+  )};
+}
 
 export default SiteCatalog;

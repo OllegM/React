@@ -9,6 +9,9 @@ const catalog = [
     category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball',
   },
   {
+    category: 'Sporting Goods', price: '$329.99', stocked: false, name: 'Bikes',
+  },
+  {
     category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch',
   },
   {

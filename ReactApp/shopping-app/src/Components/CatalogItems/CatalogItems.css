@@ -1,3 +1,7 @@
 tr.unstocked {
     color: red;
 }
+
+tr.incart {
+    color: gray;
+}
