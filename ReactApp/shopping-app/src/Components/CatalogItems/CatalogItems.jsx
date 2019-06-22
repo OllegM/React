@@ -33,7 +33,7 @@ export class CatalogItem extends React.Component {
     const className = (item.stocked ? '' : 'unstocked') + ' ' + (item.incart ? 'incart' : '');
 
     return (
-      <div className={className + ' row '}>
+      <div className={className + ' row'}>
         <div className='col-4 py-2'>{item.name}</div>
         <div className='col-4 py-2'>{item.price}</div>
         <div className="col-4 py-2">

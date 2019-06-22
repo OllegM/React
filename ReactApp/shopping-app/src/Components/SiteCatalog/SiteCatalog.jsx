@@ -40,7 +40,7 @@ class SiteCatalog extends React.Component {
   searchCallback = (filterValue) => {
     CatalogController.getAllItems().then((items) => {
       let filteredItems = items.map((item) => {
-        if (filterValue == "" || item.name.toLowerCase().indexOf(filterValue.toLowerCase()) >= 0) {
+        if (filterValue === "" || item.name.toLowerCase().indexOf(filterValue.toLowerCase()) >= 0) {
           return item;
         } else {
           return null;
