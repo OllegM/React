@@ -1,14 +1,14 @@
 import React from 'react';
-import './Category.scss';
+// import './Category.scss';
 
 function Category(props) {
   return (
-    <tbody>
-      <tr>
-        <th className="categoryTitle h3" colSpan='3'>{props.title}</th>
-      </tr>
+    <div>
+      <div className="row bg-primary text-white border border-primary">
+        <div className="col h3">{props.title}</div>
+      </div>
       {props.children}
-    </tbody>
+    </div>
   );
 }
 

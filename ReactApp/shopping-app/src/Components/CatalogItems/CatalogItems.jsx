@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 
 export function CatalogItems(props) {
   const items = props.items.map(item => {
-    if (item.category === props.category) {
+    if (item != null && item.category === props.category) {
       return <CatalogItem key={item.id} item={item} updateItem={props.updateItem} />;
     } else {
       return null;
@@ -33,13 +33,13 @@ export class CatalogItem extends React.Component {
     const className = (item.stocked ? '' : 'unstocked') + ' ' + (item.incart ? 'incart' : '');
 
     return (
-      <tr className={className}>
-        <td>{item.name}</td>
-        <td>{item.price}</td>
-        <td>
+      <div className={className + ' row '}>
+        <div className='col-4 py-2'>{item.name}</div>
+        <div className='col-4 py-2'>{item.price}</div>
+        <div className="col-4 py-2">
           <Button variant="secondary" disabled={!item.stocked} onClick={this.toggleStock}>{item.incart ? 'Remove from cart' : 'Add to cart'}</Button>
-        </td>
-      </tr>
+        </div>
+      </div>
     );
   }
 };

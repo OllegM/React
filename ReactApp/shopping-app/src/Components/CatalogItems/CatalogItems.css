@@ -1,7 +1,7 @@
-tr.unstocked {
+div.unstocked {
     color: red;
 }
 
-tr.incart {
+div.incart {
     color: gray;
 }
