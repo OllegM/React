@@ -13,10 +13,10 @@ function SiteCatalog(props) {
     </tr>
   );
 
-  const CatalogCategories = [...categories].map(categoryItem => {
+  const CatalogCategories = categories.map(categoryItem => {
     return (
-      <Category title={categoryItem} >
-        <CatalogItems catalog={catalog} category={categoryItem} />
+      <Category title={categoryItem.category} key={categoryItem.id} >
+        <CatalogItems catalog={catalog} category={categoryItem.category} />
       </Category>
     );
   });
