@@ -33,7 +33,7 @@ export class CartWindow extends React.Component {
         if (false === isNaN(price)) {
           total += price
         }
-        return <li>{item.name}({item.price})</li>;
+        return <li key={item.id}>{item.name}({item.price})</li>;
       } else {
         return null;
       }
