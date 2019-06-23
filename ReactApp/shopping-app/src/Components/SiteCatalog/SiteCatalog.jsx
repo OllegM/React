@@ -15,6 +15,7 @@ class SiteCatalog extends React.Component {
 
     // subscribe for return events from controller to component
     CatalogController.subscribers.push(this.refreshItems);
+//    CatalogController.subscribers.push(this.refreshItems);
   }
 
   componentDidMount() {
@@ -37,6 +38,7 @@ class SiteCatalog extends React.Component {
     })
   }
 
+  // TODO: move to CatalogController
   searchCallback = (filterValue) => {
     CatalogController.getAllItems().then((items) => {
       let filteredItems = items.map((item) => {
@@ -72,7 +74,7 @@ class SiteCatalog extends React.Component {
   render(props) {
     return (
       <div className="container">
-        <SearchBar searchCallback={this.searchCallback} />
+        <SearchBar searchCallback={this.searchCallback} catalogController={CatalogController} />
         {this.TableHeader}
         {this.Catalog()}
       </div>

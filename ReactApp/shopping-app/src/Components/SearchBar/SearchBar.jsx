@@ -28,7 +28,7 @@ class SearchBar extends React.Component {
         <div className="col-sm-2 text-right">
           <Button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Show cart</Button>
         </div>
-        <CartWindow />
+        <CartWindow catalogController={this.props.catalogController} />
       </div>
     );
   }

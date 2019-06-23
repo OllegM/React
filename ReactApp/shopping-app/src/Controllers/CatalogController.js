@@ -32,6 +32,14 @@ class CatalogControler {
         })
     }
 
+    getCartItems() {
+        return new Promise((resolve) => {
+            const cartItems = this._items.map((item) => { 
+                if (item.incart) { return item } else {return null } })
+            resolve(cartItems);
+        })
+    }
+
     getAllCatergories() {
         return new Promise((resolve) => {
             resolve(this._categories);
