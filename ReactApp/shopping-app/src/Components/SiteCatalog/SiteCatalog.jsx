@@ -12,7 +12,10 @@ class SiteCatalog extends React.Component {
       items: [],
       categories: []
     };
-
+    // let stupidVar = "";
+    for (let i=0; i < 10e6; i++) {
+      const stupidVar = "bla" + i;
+    }
     // subscribe for return events from controller to component
     CatalogController.subscribers.push(this.refreshItems);
 //    CatalogController.subscribers.push(this.refreshItems);
